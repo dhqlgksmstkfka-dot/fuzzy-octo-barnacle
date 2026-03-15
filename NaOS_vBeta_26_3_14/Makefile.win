@@ -1,0 +1,49 @@
+# Project: NaOS_vBeta_26_3
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = script/calculation.o script/dice.o script/game.o script/main.o script/notefile.o script/others.o script/string.o script/util.o
+LINKOBJ  = script/calculation.o script/dice.o script/game.o script/main.o script/notefile.o script/others.o script/string.o script/util.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = NaOS_vBeta_26_3_14.exe
+CXXFLAGS = $(CXXINCS) -std=c11
+CFLAGS   = $(INCS) -std=c11
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+script/calculation.o: script/calculation.c
+	$(CC) -c script/calculation.c -o script/calculation.o $(CFLAGS)
+
+script/dice.o: script/dice.c
+	$(CC) -c script/dice.c -o script/dice.o $(CFLAGS)
+
+script/game.o: script/game.c
+	$(CC) -c script/game.c -o script/game.o $(CFLAGS)
+
+script/main.o: script/main.c
+	$(CC) -c script/main.c -o script/main.o $(CFLAGS)
+
+script/notefile.o: script/notefile.c
+	$(CC) -c script/notefile.c -o script/notefile.o $(CFLAGS)
+
+script/others.o: script/others.c
+	$(CC) -c script/others.c -o script/others.o $(CFLAGS)
+
+script/string.o: script/string.c
+	$(CC) -c script/string.c -o script/string.o $(CFLAGS)
+
+script/util.o: script/util.c
+	$(CC) -c script/util.c -o script/util.o $(CFLAGS)
